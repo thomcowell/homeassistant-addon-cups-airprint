@@ -52,7 +52,9 @@ RUN apt-get update \
     && git clone --depth=1 https://github.com/OpenPrinting/splix.git /tmp/splix \
     && cd /tmp/splix \
     && make DISABLE_JBIG=1 \
-    && make install \
+    && mkdir -p "$(cups-config --serverbin)/filter" \
+    && install -m 755 optimized/rastertoqpdl "$(cups-config --serverbin)/filter/" \
+    && install -m 755 optimized/pstoqpdl "$(cups-config --serverbin)/filter/" \
     && rm -rf /tmp/splix \
     && apt-get purge -y git make g++ pkg-config \
     && apt-get autoremove -y \
