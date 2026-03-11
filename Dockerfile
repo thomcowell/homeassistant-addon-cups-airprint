@@ -39,7 +39,8 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/*
 
 # Build SpliX 2.0.1 from source (fixes Samsung M202x band-width bug, merged in commit 62a25031)
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
         git build-essential libcups2-dev libcupsimage2-dev libjbig-dev \
     && git clone --depth=1 https://github.com/OpenPrinting/splix.git /tmp/splix \
     && cd /tmp/splix && make -j2 && make install \
