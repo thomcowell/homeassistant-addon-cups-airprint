@@ -16,7 +16,6 @@ RUN apt update \
         libnss-mdns \
         dbus \
         colord \
-        printer-driver-all-enforce \
         printer-driver-all \
         printer-driver-brlaser \
         printer-driver-gutenprint \
@@ -38,7 +37,7 @@ RUN apt update \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-# Build SpliX 2.0.1 from source (fixes Samsung M202x band-width bug, merged in commit 62a25031)
+# Build SpliX from source (OpenPrinting/splix master; includes M2020 SpecialBandWidth support)
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         git make g++ pkg-config libcups2-dev libcupsimage2-dev \
