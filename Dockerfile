@@ -42,10 +42,13 @@ RUN apt update \
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         git make g++ pkg-config libcups2-dev libcupsimage2-dev \
-    && mkdir -p /usr/lib/pkgconfig \
-    && printf 'Name: cups\nDescription: CUPS\nVersion: 2.4\nCflags: %s\nLibs: %s\n' \
-        "$(cups-config --cflags)" "$(cups-config --libs)" \
-        > /usr/lib/pkgconfig/cups.pc \
+    && mkdir -p /usr/lib/aarch64-linux-gnu/pkgconfig \
+    && printf 'cups_serverbin=%s\ncups_datadir=%s\n\nName: cups\nDescription: CUPS\nVersion: 2.4\nCflags: %s\nLibs: %s\n' \
+        "$(cups-config --serverbin)" \
+        "$(cups-config --datadir)" \
+        "$(cups-config --cflags)" \
+        "$(cups-config --libs)" \
+        > /usr/lib/aarch64-linux-gnu/pkgconfig/cups.pc \
     && git clone --depth=1 https://github.com/OpenPrinting/splix.git /tmp/splix \
     && cd /tmp/splix \
     && make DISABLE_JBIG=1 \
