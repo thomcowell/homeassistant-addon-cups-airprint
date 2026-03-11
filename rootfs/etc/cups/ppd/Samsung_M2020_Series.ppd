@@ -22,6 +22,8 @@
 *cupsManualCopies: False
 *cupsModelNumber: 196
 *cupsFilter:  "application/vnd.cups-raster 0 rastertoqpdl"
+*QPDL BandSize: "128"
+*QPDL QPDLVersion: "3"
 *QPDL SpecialBandWidth: "True"
 *ModelName: "Samsung M2020 Series"
 *ShortNickName: "M2020"
