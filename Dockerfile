@@ -41,12 +41,15 @@ RUN apt update \
 # Build SpliX 2.0.1 from source (fixes Samsung M202x band-width bug, merged in commit 62a25031)
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        git build-essential libcups2-dev libcupsimage2-dev libjbig-dev \
+        git make g++ libcups2-dev libcupsimage2-dev libjbig-dev \
     && git clone --depth=1 https://github.com/OpenPrinting/splix.git /tmp/splix \
-    && cd /tmp/splix && make -j2 && make install \
-    && apt-get purge -y git build-essential \
+    && cd /tmp/splix \
+    && make \
+    && make install \
+    && rm -rf /tmp/splix \
+    && apt-get purge -y git make g++ \
     && apt-get autoremove -y \
-    && rm -rf /tmp/splix /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 # Add Canon cnijfilter2 driver
 RUN cd /tmp \
