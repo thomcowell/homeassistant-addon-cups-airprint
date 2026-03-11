@@ -44,7 +44,8 @@ RUN apt-get update \
         git make g++ pkg-config libcups2-dev libcupsimage2-dev \
     && git clone --depth=1 https://github.com/OpenPrinting/splix.git /tmp/splix \
     && cd /tmp/splix \
-    && make DISABLE_JBIG=1 \
+    && PKG_CONFIG_PATH=/usr/lib/aarch64-linux-gnu/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig \
+       make DISABLE_JBIG=1 \
     && make install \
     && rm -rf /tmp/splix \
     && apt-get purge -y git make g++ pkg-config \
