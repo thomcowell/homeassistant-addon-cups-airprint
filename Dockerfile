@@ -18,7 +18,6 @@ RUN apt update \
         colord \
         printer-driver-all-enforce \
         printer-driver-all \
-        printer-driver-splix \
         printer-driver-brlaser \
         printer-driver-gutenprint \
         openprinting-ppds \
@@ -38,6 +37,15 @@ RUN apt update \
         whois \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/*
+
+# Build SpliX 2.0.1 from source (fixes Samsung M202x band-width bug, merged in commit 62a25031)
+RUN apt-get install -y --no-install-recommends \
+        git build-essential libcups2-dev libcupsimage2-dev libjbig-dev \
+    && git clone --depth=1 https://github.com/OpenPrinting/splix.git /tmp/splix \
+    && cd /tmp/splix && make -j2 && make install \
+    && apt-get purge -y git build-essential \
+    && apt-get autoremove -y \
+    && rm -rf /tmp/splix /var/lib/apt/lists/*
 
 # Add Canon cnijfilter2 driver
 RUN cd /tmp \
