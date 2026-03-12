@@ -1,3 +1,8 @@
+## v1.8
+
+- Updated Splix to 2.0.1 with build at install 
+- Added in Samsung m2020 PPD for my instance
+
 ## v1.7
 
 - Fix the issue with "ulimit" size and permissions
