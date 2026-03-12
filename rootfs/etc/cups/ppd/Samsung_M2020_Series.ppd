@@ -48,7 +48,7 @@
 *OpenUI *ColorModel/Color Mode: PickOne
 *OrderDependency: 10 AnySetup *ColorModel
 *DefaultColorModel: Gray
-*ColorModel Gray/Grayscale: "<>setpagedevice"
+*ColorModel Gray/Grayscale: "<</cupsColorSpace 3/cupsColorOrder 0/cupsCompression 17>>setpagedevice"
 *CloseUI: *ColorModel
 
 *% =========================================================
@@ -228,10 +228,6 @@
 *%ImageableArea A6/A6:                  "12.5 12.5 284.5 407.5"
 *ImageableArea Oficio_S/Oficio:        "12.5 12.5 599.5 959.5"
 *ImageableArea PCard4x6/Post Card 4x6: "12.5 12.5 275.5 419.5"
-
-*DefaultCompression: FBXOR
-*Compression FBXOR/FBXOR: "1"
-*Compression Adaptive/Adaptive: "1"
 
 *% These provide the physical dimensions of the media, by option keyword.
 *DefaultPaperDimension: Letter
