@@ -170,7 +170,7 @@
 *% reason to use PageRegion, such as when using manual Feeder.
 *OpenUI *PageSize/Page Size: PickOne
 *OrderDependency: 30 AnySetup *PageSize
-*DefaultPageSize: Letter
+*DefaultPageSize: A4
 *PageSize Letter/Letter: "<</Policies <</PageSize 7>> /PageSize [612 792] /ImagingBBox null>> setpagedevice"
 *PageSize Legal/Legal: "<</Policies <</PageSize 7>> /PageSize [612 1008] /ImagingBBox null>> setpagedevice"
 *PageSize A4/A4: "<</Policies <</PageSize 7>> /PageSize [595 842] /ImagingBBox null>> setpagedevice"
@@ -191,7 +191,7 @@
 
 *OpenUI *PageRegion: PickOne
 *OrderDependency: 40 AnySetup *PageRegion
-*DefaultPageRegion: Letter
+*DefaultPageRegion: A4
 *PageRegion Letter/Letter: "<</Policies <</PageSize 7>> /PageSize [612 792] /ImagingBBox null>> setpagedevice"
 *PageRegion Legal/Legal: "<</Policies <</PageSize 7>> /PageSize [612 1008] /ImagingBBox null>> setpagedevice"
 *PageRegion A4/A4: "<</Policies <</PageSize 7>> /PageSize [595 842] /ImagingBBox null>> setpagedevice"
@@ -211,7 +211,7 @@
 *CloseUI: *PageRegion
 
 *% These entries provide the imageable areas of the media option keywords
-*DefaultImageableArea: Letter
+*DefaultImageableArea: A4
 *ImageableArea Letter/Letter:          "12.5 12.5 599.5 779.5"
 *ImageableArea Legal/Legal:            "12.5 12.5 599.5 995.5"
 *ImageableArea A4/A4:                  "12.5 12.5 582.5 829.5"
@@ -230,7 +230,7 @@
 *ImageableArea PCard4x6/Post Card 4x6: "12.5 12.5 275.5 419.5"
 
 *% These provide the physical dimensions of the media, by option keyword.
-*DefaultPaperDimension: Letter
+*DefaultPaperDimension: A4
 *PaperDimension Letter/Letter: "612 792"
 *PaperDimension Legal/Legal: "612 1008"
 *PaperDimension A4/A4: "595 842"
