@@ -17,6 +17,13 @@ rm -v -fR /etc/cups
 
 ln -v -s /config/cups /etc/cups
 
+# Ensure the error log is sent to stdout even for pre-existing configs
+# that were copied to /config before this was added, so failures show up
+# in the Supervisor add-on log.
+if ! grep -q '^ErrorLog /dev/stdout' /etc/cups/cupsd.conf; then
+  echo "ErrorLog /dev/stdout" >> /etc/cups/cupsd.conf
+fi
+
 # Always update bundled PPDs so container image updates take effect
 mkdir -p /etc/cups/ppd
 cp /tmp/cups-ppd-update/*.ppd /etc/cups/ppd/ 2>/dev/null || true

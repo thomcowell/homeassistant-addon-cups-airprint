@@ -1,3 +1,8 @@
+## v1.9
+
+- Route CUPS's error log to stdout (`ErrorLog /dev/stdout`, `LogLevel info`) so scheduler/backend/job errors show up in the Supervisor add-on log instead of being invisible inside the container
+- Applied automatically to existing `/config/cups` installs too, not just fresh ones
+
 ## v1.8
 
 - Updated Splix to 2.0.1 with build at install 
