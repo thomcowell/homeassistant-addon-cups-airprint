@@ -1,3 +1,7 @@
+## v1.10
+
+- Fix "printer cannot be found" on AirPrint clients: Avahi now advertises only on `end0` and the mDNS reflector is disabled. Previously Avahi ran on end0, wlan0, docker0, hassio and every veth interface with the reflector on, saw its own announcements and renamed the host endlessly (`...-2.local` to `...-77.local`), so clients held a stale hostname
+
 ## v1.9
 
 - Route CUPS's error log to stdout (`ErrorLog /dev/stdout`, `LogLevel info`) so scheduler/backend/job errors show up in the Supervisor add-on log instead of being invisible inside the container
